@@ -1,2 +1,6 @@
 http00.json: Get all models
 http01.json: Delete model by id
+http02.json: Get paged items
+http03.json: Get paged items - invalid pagination
+http04.json: Compare items
+http05.json: Compare items - invalid ids

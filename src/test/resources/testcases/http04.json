@@ -1,0 +1,4 @@
+{"request": {"method": "GET", "url": "/items/compare?ids=SNEAK-001,SNEAK-002", "headers": {}, "body": {}}, "response": {"status_code": 200, "headers": {}, "body": {}}}
+{"request": {"method": "GET", "url": "/items/compare?ids=SNEAK-001,SNEAK-999", "headers": {}, "body": {}}, "response": {"status_code": 200, "headers": {}, "body": {}}}
+{"request": {"method": "GET", "url": "/items/compare?ids=SNEAK-001,SNEAK-002,SNEAK-003,SNEAK-004", "headers": {}, "body": {}}, "response": {"status_code": 200, "headers": {}, "body": {}}}
+{"request": {"method": "GET", "url": "/items/compare?ids=SNEAK-001,SNEAK-001,SNEAK-002", "headers": {}, "body": {}}, "response": {"status_code": 200, "headers": {}, "body": {}}}
