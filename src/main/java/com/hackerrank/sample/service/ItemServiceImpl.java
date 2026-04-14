@@ -6,7 +6,9 @@ import com.hackerrank.sample.model.Item;
 import com.hackerrank.sample.repository.ItemRepository;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,13 +35,16 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public CompareItemsResponse compareItems(List<String> ids) {
+        Map<String, Item> itemMap = itemRepository.findAllById(ids).stream()
+                .collect(Collectors.toMap(Item::getId, Function.identity()));
+
         List<Item> foundItems = new ArrayList<>();
         List<String> missingIds = new ArrayList<>();
 
         for (String id : ids) {
-            Optional<Item> item = itemRepository.findById(id);
-            if (item.isPresent()) {
-                foundItems.add(item.get());
+            Item item = itemMap.get(id);
+            if (item != null) {
+                foundItems.add(item);
             } else {
                 missingIds.add(id);
             }
